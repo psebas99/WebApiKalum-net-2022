@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "XDAAWCEq7fupgEiuy3bPBxjsyxPj+uq5VRWxz7XhCJUeC82H/2/qC2Hr+ianIx+/2lFq+rGjioXOJRxuUvDLXA==",
+  "dgSpecHash": "wOchr3H4Hu5UzzF7wXg63MqSfflJ9Exb4k7purprNtZ9J/DGCJZ58/QqBUvPrQ6QycIYNHQVS73FLLEQl8xkOA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ENVY\\Desktop\\BACKEND\\WebApiKalum\\WebApiKalum.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ENVY\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\ENVY\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\ENVY\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ENVY\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.5\\microsoft.aspnetcore.jsonpatch.6.0.5.nupkg.sha512",
     "C:\\Users\\ENVY\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\6.0.5\\microsoft.aspnetcore.mvc.newtonsoftjson.6.0.5.nupkg.sha512",

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using WebApiKalum.Utilities;
 
 namespace WebApiKalum
 {
@@ -12,6 +13,9 @@ namespace WebApiKalum
 
         public void ConfigureServices(IServiceCollection _services)
         {
+            _services.AddTransient<ActionFilter>();
+            _services.AddControllers(options => options.Filters.Add(typeof(ErrorFilterException)));
+            _services.AddAutoMapper(typeof(Startup));
             _services.AddControllers();
             _services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             _services.AddDbContext<KalumDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
