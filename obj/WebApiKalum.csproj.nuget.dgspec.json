@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ENVY\\Desktop\\BACKEND\\WebApiKalum\\WebApiKalum.csproj": {}
+    "C:\\Users\\ENVY\\Desktop\\BACKEND\\prod\\WebApiKalum\\WebApiKalum.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ENVY\\Desktop\\BACKEND\\WebApiKalum\\WebApiKalum.csproj": {
+    "C:\\Users\\ENVY\\Desktop\\BACKEND\\prod\\WebApiKalum\\WebApiKalum.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ENVY\\Desktop\\BACKEND\\WebApiKalum\\WebApiKalum.csproj",
+        "projectUniqueName": "C:\\Users\\ENVY\\Desktop\\BACKEND\\prod\\WebApiKalum\\WebApiKalum.csproj",
         "projectName": "WebApiKalum",
-        "projectPath": "C:\\Users\\ENVY\\Desktop\\BACKEND\\WebApiKalum\\WebApiKalum.csproj",
+        "projectPath": "C:\\Users\\ENVY\\Desktop\\BACKEND\\prod\\WebApiKalum\\WebApiKalum.csproj",
         "packagesPath": "C:\\Users\\ENVY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ENVY\\Desktop\\BACKEND\\WebApiKalum\\obj\\",
+        "outputPath": "C:\\Users\\ENVY\\Desktop\\BACKEND\\prod\\WebApiKalum\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ENVY\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -57,6 +57,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.5, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.2.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

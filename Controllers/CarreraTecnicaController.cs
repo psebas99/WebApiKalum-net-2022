@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiKalum.Entities;
 using WebApiKalum.Dtos;
-
+using WebApiKalum.Utilities;
 
 namespace WebApiKalum.Controllers
 {
     [ApiController]
-    [Route("v1/KalumManagement/CarreraTecnica")]
+    [Route("v1/KalumManagement/CarreraTecnica/")]
     public class CarreraTecnicaController : ControllerBase
     {
         private readonly KalumDbContext DbContext;
@@ -22,23 +22,42 @@ namespace WebApiKalum.Controllers
             this.Mapper = _Mapper;
         }
 
-      /*  [HttpGet]
-        public async Task<ActionResult<IEnumerable<CarreraTecnica>>> Get()
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<CarreraTecnicaController>>> Get()
         {
             List<CarreraTecnica> carrerasTecnicas = null;
-            Logger.LogDebug("Iniciando proceso de consulta de ccarreras tecnicad rm la base de datos");
-            //tarea1
-            carrerasTecnicas = await DbContext.CarreraTecnica.ToListAsync();
-            //tarea2
-            if (carrerasTecnicas == null || carrerasTecnicas.Count == 0)
+            Logger.LogDebug("Iniciando proceso de consulta de Carreras Técnicas en la base de datos");
+
+            //Tarea 1
+            carrerasTecnicas = await DbContext.CarreraTecnica.Include(c => c.Aspirantes).Include(c => c.Inscripciones).ToListAsync();
+            
+            //Tarea 2
+            if(carrerasTecnicas == null || carrerasTecnicas.Count == 0)
             {
-                Logger.LogWarning("No existe carreras técnicas");
+                Logger.LogWarning("No existen carreras Técnicas");
                 return new NoContentResult();
             }
-            List<CarreraTecnicaAspiranteList> carreras = Mapper.Map<List<CarreraTecnicaList>>(carrerasTecnicas);
-            Logger.LogInformation("Se ejecuta la petición de forma exitosa");
+            List<CarreraTecnicaAspiranteList> carreras = Mapper.Map<List<CarreraTecnicaAspiranteList>>(carrerasTecnicas);
+            Logger.LogInformation("Se ejecutó la petición de forma exitosa");
             return Ok(carreras);
-        }*/
+        }
+
+        [HttpGet("page/{page}")]
+        public async Task<ActionResult<IEnumerable<CarreraTecnicaAspiranteListDTO>>> GetPaginacion(int page)
+        {
+            var queryable = this.DbContext.CarreraTecnica.Include(ct => ct.Aspirantes).Include(ct => ct.Inscripciones).AsQueryable();
+            var paginacion = new HttpResponsePaginacion<CarreraTecnica>(queryable,page);
+            if (paginacion.Content == null && paginacion.Content.Count == 0)
+            {
+                return NoContent();                
+            }
+            else
+            {
+                return Ok(paginacion);
+            }
+        }
+
+
 
         [HttpGet("{id}", Name = "GetCarreraTecnica")]
         public async Task<ActionResult<CarreraTecnica>>GetCarreraTecnica(string id)

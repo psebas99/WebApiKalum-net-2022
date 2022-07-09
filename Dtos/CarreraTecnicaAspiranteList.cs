@@ -5,7 +5,7 @@ namespace WebApiKalum.Dtos
         public string CarreraId { get; set; }
         public string Nombre { get; set; }
         public List<CarreraTecnicaAspiranteList> Aspirantes {get; set; }
-        public List<InscripcionListDTO> INscripciones {get; set; }
+        public List<InscripcionListDTO> Inscripciones {get; set; }
 
     }
 }
